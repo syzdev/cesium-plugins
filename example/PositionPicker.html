@@ -36,8 +36,8 @@
   </script>
   <script type="module">
     import { PositionPicker } from '../index.js'
-    const pick = new PositionPicker(Cesium, viewer)
-    pick.pick(({ lon, lat, hgt }) => {
+    const picker = new PositionPicker(Cesium, viewer)
+    picker.pick(({ lon, lat, hgt }) => {
       // console.log(lon, lat, hgt)
     }, true)
   </script>
