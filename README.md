@@ -31,7 +31,7 @@ picker.pick(({ lon, lat, hgt }) => {
 }, true)
 ```
 
-### `disable()`
+### `destroy()`
 
 用于销毁`PositionPicker`实例对象。
 
