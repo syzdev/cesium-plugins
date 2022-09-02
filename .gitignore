@@ -2,7 +2,6 @@
 node_modules/
 src/
 plugins/
-libs/
 rollup.config.js
 package-lock.json
 package.json

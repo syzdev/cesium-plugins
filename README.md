@@ -14,6 +14,8 @@ npm i cesium-plugins
 
 用于鼠标左键点击拾取经度、纬度和高度的工具类。
 
+[Live Demo]: https://syzdev.cn/cesium-plugins/example/PositionPicker.html
+
 ### `constructor(Cesium, viewer)`
 
 构造函数，用于初始化`PositionPicker`实例对象。
@@ -54,6 +56,8 @@ picker.destroy()
 ## Cesium3DTilesLoader
 
 用于加载并配置3DTiles的工具类。
+
+[Live Demo]: https://syzdev.cn/cesium-plugins/example/Cesium3DTilesLoader.html
 
 ### `constructor(Cesium, viewer)`
 
