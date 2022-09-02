@@ -1,6 +1,6 @@
 # 简介
 
-用于提高 Cesium 可用性的插件库。
+用于提高Cesium可用性的插件库。
 
 # 安装
 
@@ -76,8 +76,8 @@ const loader = new Cesium3DTilesLoader(Cesium, viewer)
 | 名称         | 类型       | 默认值       | 描述                         |
 | ---------- | -------- | --------- | -------------------------- |
 | `url`      | `String` |           | 3DTiles的`tileset.json`资源路径 |
-| `posOpts`  | `Object` | （见下文）     | 加载3DTiles的位置、旋转和缩放参数       |
-| `loadOpts` | `Object` | `{}`（见下文） |                            |
+| `posOpts`  | `Object` | （见下文）     | 加载3DTiles的位置、旋转和缩放参数  |
+| `loadOpts` | `Object` | `{}`（见下文） | 加载3DTiles的配置项，与`Cesium3DTileset`类的`option`配置项保持一致 |
 
 该方法会返回一个`Cesium3DTileset`实例对象。
 
@@ -95,7 +95,7 @@ const loader = new Cesium3DTilesLoader(Cesium, viewer)
 },
 ```
 
-`loadOpts`与`Cesium3DTileset`类的`option`配置项保持一致，详见[Cesium3DTileset]([Cesium3DTileset - Cesium Documentation](https://cesium.com/learn/cesiumjs/ref-doc/Cesium3DTileset.html?classFilter=Cesium3DTileset#Cesium3DTileset))，如可以添加如下配置：
+`loadOpts`与`Cesium3DTileset`类的`option`配置项保持一致，详见[Cesium3DTileset - Cesium Documentation](https://cesium.com/learn/cesiumjs/ref-doc/Cesium3DTileset.html?classFilter=Cesium3DTileset#Cesium3DTileset)，如可以添加如下配置：
 
 ```javascript
 {
