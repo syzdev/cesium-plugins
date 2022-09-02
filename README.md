@@ -8,9 +8,9 @@
 npm i cesium-plugins
 ```
 
-# API
+# 工具类
 
-## `PositionPicker`
+## PositionPicker
 
 用于鼠标左键点击拾取经度、纬度和高度的工具类。
 
