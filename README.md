@@ -24,7 +24,7 @@ npm i cesium-plugins
 
 Plugin for left mouse click to pick up longitude, latitude, and height.
 
-Live Demo: [PositionPicker](https://syzdev.cn/cesium-plugins/example/PositionPicker.html)
+Live Demo: [PositionPicker](https://syzdev.cn/cesium-plugins/example/PositionPicker.html) (View the output in the browser console.)
 
 ### `constructor(Cesium, viewer)`
 
@@ -91,7 +91,7 @@ The core function is used to load and configure 3DTiles.
 | ---------- | -------- | --------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `url`      | `String` |                 | The resource path to `tileset.json`                                                                                   |
 | `posOpts`  | `Object` | (See below)     | Load the position, rotation, and scale parameters for 3DTiles                                                         |
-| `loadOpts` | `Object` | `{}`(See below) | Load the configuration of 3DTiles, which is consistent with the `option` configuration of the `Cesium3DTileset` class |
+| `loadOpts` | `Object` | (See below) | Load the configuration of 3DTiles, which is consistent with the `option` configuration of the `Cesium3DTileset` class |
 
 This function will return an instance object of `Cesium3DTileset`.
 
@@ -100,11 +100,11 @@ The parameter list and default configuration of `posOpts` are as follows:
 ```javascript
 {
   lon: 116.391311, // Longitude (in decimal)
-  lat: 39.90616, // Latitude (decimal)
+  lat: 39.90616, // Latitude (in decimal)
   hgt: 0, // Height (in meters)
-  rx: 0, // X axis (longitude) direction rotation Angle (degrees)
-  ry: 0, // Y axis (latitude) direction rotation Angle (degree)
-  rz: 0, // Z axis (height) direction rotation Angle (degree)
+  rx: 0, // X axis (longitude) direction rotation Angle (in degrees)
+  ry: 0, // Y axis (latitude) direction rotation Angle (in degree)
+  rz: 0, // Z axis (height) direction rotation Angle (in degree)
   scale: 1, // Scale of the 3DTiles
 },
 ```
@@ -179,7 +179,7 @@ The parameter list and default configuration of `tooltipOpts` are as follows:
 
 ```javascript
 {
-  // Offset of Tooltip from mouse (px)
+  // Offset of Tooltip from mouse (in px)
   offset: {
     left: 30,
     top: 50,

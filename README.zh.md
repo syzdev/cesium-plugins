@@ -24,7 +24,7 @@ npm i cesium-plugins
 
 用于鼠标左键点击拾取经度、纬度和高度的工具类。
 
-在线示例：[PositionPicker](https://syzdev.cn/cesium-plugins/example/PositionPicker.html)
+在线示例：[PositionPicker](https://syzdev.cn/cesium-plugins/example/PositionPicker.html)（在浏览器控制台查看输出）
 
 ### `constructor(Cesium, viewer)`
 
@@ -91,7 +91,7 @@ const loader = new Cesium3DTilesLoader(Cesium, viewer)
 | ---------- | -------- | --------- | ------------------------------------------------- |
 | `url`      | `String` |           | 3DTiles的`tileset.json`资源路径                        |
 | `posOpts`  | `Object` | （见下文）     | 加载3DTiles的位置、旋转和缩放参数                              |
-| `loadOpts` | `Object` | `{}`（见下文） | 加载3DTiles的配置项，与`Cesium3DTileset`类的`option`配置项保持一致 |
+| `loadOpts` | `Object` | （见下文） | 加载3DTiles的配置项，与`Cesium3DTileset`类的`option`配置项保持一致 |
 
 该方法会返回一个`Cesium3DTileset`实例对象。
 
