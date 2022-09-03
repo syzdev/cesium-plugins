@@ -1,37 +1,39 @@
-# 简介
+# English | [简体中文](./README.zh.md)
 
-用于提高Cesium可用性的插件库。
+# Introduction
 
-# 安装
+Plugins for improving the availability of Cesium.
+
+# Installation
 
 ```
 npm i cesium-plugins
 ```
 
-# 目录
+# Overview
 
-- [PositionPicker](https://github.com/syzdev/cesium-plugins#positionpicker)：用于鼠标左键点击拾取经度、纬度和高度的工具类。
+- [PositionPicker](https://github.com/syzdev/cesium-plugins#positionpicker)：Plugin for left mouse click to pick up longitude, latitude, and height.
 
-- [Cesium3DTilesLoader](https://github.com/syzdev/cesium-plugins#cesium3dtilesloader)：用于加载并配置3DTiles的工具类。
+- [Cesium3DTilesLoader](https://github.com/syzdev/cesium-plugins#cesium3dtilesloader)：Plugin for loading and configuring 3DTiles.
 
-- [Tooltip](https://github.com/syzdev/cesium-plugins#Tooltip)：用于创建跟随鼠标移动的Tooltip。
+- [Tooltip](https://github.com/syzdev/cesium-plugins#Tooltip)：Plugin for creating tooltip that follow mouse movement.
 
 # API
 
 ## PositionPicker
 
-用于鼠标左键点击拾取经度、纬度和高度的工具类。
+Plugin for left mouse click to pick up longitude, latitude, and height.
 
-在线示例：[PositionPicker](https://syzdev.cn/cesium-plugins/example/PositionPicker.html)
+Live Demo: [PositionPicker](https://syzdev.cn/cesium-plugins/example/PositionPicker.html)
 
 ### `constructor(Cesium, viewer)`
 
-构造函数，用于初始化`PositionPicker`实例对象。
+Constructor, used to initialize the instance object of `PositionPicker`.
 
-| 名称       | 类型       | 默认值 | 描述                   |
-| -------- | -------- | --- | -------------------- |
-| `Cesium` | `Object` |     | Cesium全局对象           |
-| `viewer` | `Object` |     | 初始化Cesium场景的`viewer` |
+| Name     | Type     | Default | Description                         |
+| -------- | -------- | ------- | ----------------------------------- |
+| `Cesium` | `Object` |         | Cesium global object                |
+| `viewer` | `Object` |         | Initialize `viewer` of Cesium scene |
 
 ```javascript
 import { PositionPicker } from 'cesium-plugins'
@@ -40,12 +42,12 @@ const picker = new PositionPicker(Cesium, viewer)
 
 ### `pick(callback, verbose)`
 
-核心方法，用于鼠标左键点击拾取经度、纬度和高度。获取的经度、纬度和高度可在回调函数`callback`中获取。
+The core function is used to pick up longitude, latitude and height by clicking the left mouse button. The obtained longitude, latitude, and height can be obtained in the `callback` function.
 
-| 名称         | 类型         | 默认值    | 描述               |
-| ---------- | ---------- | ------ | ---------------- |
-| `callback` | `Function` |        | 获取经度、纬度和高度的回调函数  |
-| `verbose`  | `Boolean`  | `true` | 是否在控制台输出经度、纬度和高度 |
+| Name       | Type       | Default | 描述                                                              |
+| ---------- | ---------- | ------- | --------------------------------------------------------------- |
+| `callback` | `Function` |         | Callback function for obtaining longitude, latitude and height  |
+| `verbose`  | `Boolean`  | `true`  | Whether to output longitude, latitude and height on the console |
 
 ```javascript
 picker.pick(({ lon, lat, hgt }) => {
@@ -55,7 +57,7 @@ picker.pick(({ lon, lat, hgt }) => {
 
 ### `destroy()`
 
-用于销毁`PositionPicker`实例对象。
+Used to destroy the `PositionPicker` instance object.
 
 ```javascript
 picker.destroy()
@@ -63,18 +65,18 @@ picker.destroy()
 
 ## Cesium3DTilesLoader
 
-用于加载并配置3DTiles的工具类。
+Plugin for loading and configuring 3DTiles.
 
-在线示例：[Cesium3DTilesLoader](https://syzdev.cn/cesium-plugins/example/Cesium3DTilesLoader.html)
+Live Demo: [Cesium3DTilesLoader](https://syzdev.cn/cesium-plugins/example/Cesium3DTilesLoader.html)
 
 ### `constructor(Cesium, viewer)`
 
-构造函数，用于初始化`Cesium3DTilesLoader`实例对象。
+Constructor, used to initialize the instance object of `Cesium3DTilesLoader`.
 
-| 名称       | 类型       | 默认值 | 描述                   |
-| -------- | -------- | --- | -------------------- |
-| `Cesium` | `Object` |     | Cesium全局对象           |
-| `viewer` | `Object` |     | 初始化Cesium场景的`viewer` |
+| Name     | Type     | Default | Description                         |
+| -------- | -------- | ------- | ----------------------------------- |
+| `Cesium` | `Object` |         | Cesium global object                |
+| `viewer` | `Object` |         | Initialize `viewer` of Cesium scene |
 
 ```javascript
 import { Cesium3DTilesLoader } from 'cesium-plugins'
@@ -83,31 +85,31 @@ const loader = new Cesium3DTilesLoader(Cesium, viewer)
 
 ### `load(url, posOpts, loadOpts): Cesium3DTileset `
 
-核心方法，用于加载并配置3DTiles。
+The core function is used to load and configure 3DTiles.
 
-| 名称         | 类型       | 默认值       | 描述                                                |
-| ---------- | -------- | --------- | ------------------------------------------------- |
-| `url`      | `String` |           | 3DTiles的`tileset.json`资源路径                        |
-| `posOpts`  | `Object` | （见下文）     | 加载3DTiles的位置、旋转和缩放参数                              |
-| `loadOpts` | `Object` | `{}`（见下文） | 加载3DTiles的配置项，与`Cesium3DTileset`类的`option`配置项保持一致 |
+| Name       | Type     | Default         | Description                                                                                                           |
+| ---------- | -------- | --------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `url`      | `String` |                 | The resource path to `tileset.json`                                                                                   |
+| `posOpts`  | `Object` | (See below)     | Load the position, rotation, and scale parameters for 3DTiles                                                         |
+| `loadOpts` | `Object` | `{}`(See below) | Load the configuration of 3DTiles, which is consistent with the `option` configuration of the `Cesium3DTileset` class |
 
-该方法会返回一个`Cesium3DTileset`实例对象。
+This function will return an instance object of `Cesium3DTileset`.
 
-`posOpts`的参数列表及默认配置如下：
+The parameter list and default configuration of `posOpts` are as follows:
 
 ```javascript
 {
-  lon: 116.391311, // 模型经度（单位：十进制）
-  lat: 39.90616, // 模型纬度（单位：十进制）
-  hgt: 0, // 模型高度（单位：米）
-  rx: 0, // x轴（经度）方向旋转角度（单位：度）
-  ry: 0, // y轴（纬度）方向旋转角度（单位：度）
-  rz: 0, // z轴（高程）方向旋转角度（单位：度）
-  scale: 1, // 缩放比例
+  lon: 116.391311, // Longitude (in decimal)
+  lat: 39.90616, // Latitude (decimal)
+  hgt: 0, // Height (in meters)
+  rx: 0, // X axis (longitude) direction rotation Angle (degrees)
+  ry: 0, // Y axis (latitude) direction rotation Angle (degree)
+  rz: 0, // Z axis (height) direction rotation Angle (degree)
+  scale: 1, // Scale of the 3DTiles
 },
 ```
 
-`loadOpts`与`Cesium3DTileset`类的`option`配置项保持一致，详见[Cesium3DTileset - Cesium Documentation](https://cesium.com/learn/cesiumjs/ref-doc/Cesium3DTileset.html?classFilter=Cesium3DTileset#Cesium3DTileset)，如可以添加如下配置：
+`loadOpts` is consistent with the `option` configuration of the `Cesium3DTileset` class，See: [Cesium3DTileset - Cesium Documentation](https://cesium.com/learn/cesiumjs/ref-doc/Cesium3DTileset.html?classFilter=Cesium3DTileset#Cesium3DTileset)，For example, you can add the following configuration:
 
 ```javascript
 {
@@ -117,7 +119,7 @@ const loader = new Cesium3DTilesLoader(Cesium, viewer)
 }
 ```
 
-完整示例：
+Complete example:
 
 ```javascript
 const url = 'https://syzdev.cn/cesium-docs-demo/3dtiles/tlfs/tileset.json'
@@ -137,7 +139,7 @@ const tileset = loader.load(url, posOpts, loadOpts)
 
 ### `locate()`
 
-用于将视角定位到所加载的3DTiles上。
+Used to position the perspective on the loaded 3DTiles.
 
 ```javascript
 loader.locate()
@@ -145,7 +147,7 @@ loader.locate()
 
 ### `destroy()`
 
-用于销毁`Cesium3DTilesLoader`实例对象。
+Used to destroy the `Cesium3DTilesLoader` instance object.
 
 ```javascript
 loader.destroy()
@@ -153,36 +155,36 @@ loader.destroy()
 
 ## Tooltip
 
-用于创建跟随鼠标移动的Tooltip。
+Plugin for creating tooltip that follow mouse movement.
 
-在线示例：[Tooltip](https://syzdev.cn/cesium-plugins/example/Tooltip.html)
+Live Demo: [Tooltip](https://syzdev.cn/cesium-plugins/example/Tooltip.html)
 
 ### `constructor(Cesium, viewer, msg, tooltipOpts)`
 
-构造函数，用于初始化`Tooltip`实例对象。
+Constructor, used to initialize the instance object of `Tooltip`.
 
-| 名称            | 类型       | 默认值   | 描述                      |
-| ------------- | -------- | ----- | ----------------------- |
-| `Cesium`      | `Object` |       | Cesium全局对象              |
-| `viewer`      | `Object` |       | 初始化Cesium场景的`viewer`    |
-| `msg`         | `String` |       | Tooltip中显示的字符           |
-| `tooltipOpts` | `Object` | （见下文） | 与Tooltip有关的配置项，如位置、样式等。 |
+| Name          | Type     | Default     | Description                                                     |
+| ------------- | -------- | ----------- | --------------------------------------------------------------- |
+| `Cesium`      | `Object` |             | Cesium global object                                            |
+| `viewer`      | `Object` |             | Initialize `viewer` of Cesium scene                             |
+| `msg`         | `String` |             | Contents displayed in tooltip                                   |
+| `tooltipOpts` | `Object` | (See below) | Configuration related to tooltip, such as location, style, etc. |
 
 ```javascript
 import { Tooltip } from 'cesium-plugins'
 const tooltip = new Tooltip(Cesium, viewer, 'cesium-plugins', tooltipOpts)
 ```
 
-`tooltipOpts`的参数列表及默认配置如下：
+The parameter list and default configuration of `tooltipOpts` are as follows:
 
 ```javascript
 {
-  // Tooltip距离鼠标的偏移量（单位：px）
+  // Offset of Tooltip from mouse (px)
   offset: {
     left: 30,
     top: 50,
   },
-  // Tooltip容器的样式
+  // The style of the Tooltip container
   containerStyle: {
     display: 'block',
     position: 'absolute',
@@ -193,18 +195,18 @@ const tooltip = new Tooltip(Cesium, viewer, 'cesium-plugins', tooltipOpts)
     color: '#fafafa',
     zIndex: '999',
   },
-  // Tooltip内容的样式
+  // The style of the Tooltip content
   innerStyle: {
     padding: '5px 8px',
     fontSize: '10px',
     fontWeight: '400',
   },
-  // 是否仅当鼠标在地球上时显示Tooltip
+  // Whether to display Tooltip only when mouse is on Earth
   isShowOnlyOnEarth: true,
 }
 ```
 
-完整示例：
+Complete example:
 
 ```javascript
 const tooltipOpts = {
@@ -228,7 +230,7 @@ const tooltip = new Tooltip(Cesium, viewer, 'cesium-plugins', tooltipOpts)
 
 ### `show()`
 
-用于显示Tooltip，在执行构造函数后，Tooltip便会自动显示，该方法的作用在于配合`hide()`方法一起使用。
+Used to display a Tooltip that is automatically displayed after the constructor is executed. This function is used in conjunction with the `hide()` function.
 
 ```javascript
 tooltip.show()
@@ -236,7 +238,7 @@ tooltip.show()
 
 ### `hide()`
 
-用于隐藏Tooltip。
+Used to hide Tooltip.
 
 ```javascript
 tooltip.hide()
@@ -244,7 +246,7 @@ tooltip.hide()
 
 ### `destroy()`
 
-用于销毁`Tooltip`实例对象。
+Used to destroy the `Tooltip` instance object.
 
 ```javascript
 tooltip.destroy()
