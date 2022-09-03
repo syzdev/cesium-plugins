@@ -44,7 +44,7 @@ const picker = new PositionPicker(Cesium, viewer)
 
 The core function is used to pick up longitude, latitude and height by clicking the left mouse button. The obtained longitude, latitude, and height can be obtained in the `callback` function.
 
-| Name       | Type       | Default | 描述                                                              |
+| Name       | Type       | Default | Description                                                              |
 | ---------- | ---------- | ------- | --------------------------------------------------------------- |
 | `callback` | `Function` |         | Callback function for obtaining longitude, latitude and height  |
 | `verbose`  | `Boolean`  | `true`  | Whether to output longitude, latitude and height on the console |
