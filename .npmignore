@@ -6,6 +6,7 @@ example/
 rollup.config.js
 package-lock.json
 package.json
+README.zh.md
 
 
 # local env files

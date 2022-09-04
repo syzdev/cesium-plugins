@@ -6,8 +6,22 @@
 
 # 安装
 
+使用 npm：
+
 ```
 npm i cesium-plugins
+```
+
+使用 jsDelivr CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.43/index.js"></script>
+```
+
+使用 unpkg CDN:
+
+```html
+<script src="https://unpkg.com/cesium-plugins@1.0.43/index.js"></script>
 ```
 
 # 目录
@@ -87,10 +101,10 @@ const loader = new Cesium3DTilesLoader(Cesium, viewer)
 
 核心方法，用于加载并配置3DTiles。
 
-| 名称         | 类型       | 默认值       | 描述                                                |
-| ---------- | -------- | --------- | ------------------------------------------------- |
-| `url`      | `String` |           | 3DTiles的`tileset.json`资源路径                        |
-| `posOpts`  | `Object` | （见下文）     | 加载3DTiles的位置、旋转和缩放参数                              |
+| 名称         | 类型       | 默认值   | 描述                                                |
+| ---------- | -------- | ----- | ------------------------------------------------- |
+| `url`      | `String` |       | 3DTiles的`tileset.json`资源路径                        |
+| `posOpts`  | `Object` | （见下文） | 加载3DTiles的位置、旋转和缩放参数                              |
 | `loadOpts` | `Object` | （见下文） | 加载3DTiles的配置项，与`Cesium3DTileset`类的`option`配置项保持一致 |
 
 该方法会返回一个`Cesium3DTileset`实例对象。

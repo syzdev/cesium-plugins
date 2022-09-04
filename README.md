@@ -6,8 +6,22 @@ Plugins for improving the availability of Cesium.
 
 # Installation
 
+Using npm:
+
 ```
 npm i cesium-plugins
+```
+
+Using jsDelivr CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.43/index.js"></script>
+```
+
+Using unpkg CDN:
+
+```html
+<script src="https://unpkg.com/cesium-plugins@1.0.43/index.js"></script>
 ```
 
 # Overview
@@ -44,7 +58,7 @@ const picker = new PositionPicker(Cesium, viewer)
 
 The core function is used to pick up longitude, latitude and height by clicking the left mouse button. The obtained longitude, latitude, and height can be obtained in the `callback` function.
 
-| Name       | Type       | Default | Description                                                              |
+| Name       | Type       | Default | Description                                                     |
 | ---------- | ---------- | ------- | --------------------------------------------------------------- |
 | `callback` | `Function` |         | Callback function for obtaining longitude, latitude and height  |
 | `verbose`  | `Boolean`  | `true`  | Whether to output longitude, latitude and height on the console |
@@ -87,10 +101,10 @@ const loader = new Cesium3DTilesLoader(Cesium, viewer)
 
 The core function is used to load and configure 3DTiles.
 
-| Name       | Type     | Default         | Description                                                                                                           |
-| ---------- | -------- | --------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `url`      | `String` |                 | The resource path to `tileset.json`                                                                                   |
-| `posOpts`  | `Object` | (See below)     | Load the position, rotation, and scale parameters for 3DTiles                                                         |
+| Name       | Type     | Default     | Description                                                                                                           |
+| ---------- | -------- | ----------- | --------------------------------------------------------------------------------------------------------------------- |
+| `url`      | `String` |             | The resource path to `tileset.json`                                                                                   |
+| `posOpts`  | `Object` | (See below) | Load the position, rotation, and scale parameters for 3DTiles                                                         |
 | `loadOpts` | `Object` | (See below) | Load the configuration of 3DTiles, which is consistent with the `option` configuration of the `Cesium3DTileset` class |
 
 This function will return an instance object of `Cesium3DTileset`.
