@@ -117,8 +117,8 @@ The parameter list and default configuration of `posOpts` are as follows:
   lat: 39.90616, // Latitude (in decimal)
   hgt: 0, // Height (in meters)
   rx: 0, // X axis (longitude) direction rotation Angle (in degrees)
-  ry: 0, // Y axis (latitude) direction rotation Angle (in degree)
-  rz: 0, // Z axis (height) direction rotation Angle (in degree)
+  ry: 0, // Y axis (latitude) direction rotation Angle (in degrees)
+  rz: 0, // Z axis (height) direction rotation Angle (in degrees)
   scale: 1, // Scale of the 3DTiles
 },
 ```
