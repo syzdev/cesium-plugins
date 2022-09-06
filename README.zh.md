@@ -26,11 +26,11 @@ npm i cesium-plugins
 
 # 目录
 
-- [PositionPicker](https://github.com/syzdev/cesium-plugins#positionpicker)：用于鼠标左键点击拾取经度、纬度和高度的工具类。
+- [PositionPicker](https://github.com/syzdev/cesium-plugins/blob/master/README.zh.md#positionpicker)：用于鼠标左键点击拾取经度、纬度和高度的工具类。
 
-- [Cesium3DTilesLoader](https://github.com/syzdev/cesium-plugins#cesium3dtilesloader)：用于加载并配置3DTiles的工具类。
+- [Cesium3DTilesLoader](https://github.com/syzdev/cesium-plugins/blob/master/README.zh.md#cesium3dtilesloader)：用于加载并配置3DTiles的工具类。
 
-- [Tooltip](https://github.com/syzdev/cesium-plugins#Tooltip)：用于创建跟随鼠标移动的Tooltip工具类。
+- [Tooltip](https://github.com/syzdev/cesium-plugins/blob/master/README.zh.md#tooltip)：用于创建跟随鼠标移动的Tooltip工具类。
 
 # API
 
