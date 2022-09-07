@@ -1,4 +1,4 @@
-# English | [简体中文](./README.zh.md)
+# English | [简体中文](https://github.com/syzdev/cesium-plugins/blob/master/README.zh.md)
 
 # Introduction
 
@@ -31,6 +31,8 @@ Using unpkg CDN:
 - [Cesium3DTilesLoader](https://github.com/syzdev/cesium-plugins#cesium3dtilesloader)：Plugin for loading and configuring 3DTiles.
 
 - [Tooltip](https://github.com/syzdev/cesium-plugins#Tooltip)：Plugin for creating tooltip that follow mouse movement.
+
+- [exportSceneAsImage](https://github.com/syzdev/cesium-plugins#exportSceneAsImage)：Function used to export the scene as an image (.png).
 
 # API
 
@@ -264,4 +266,20 @@ Used to destroy the `Tooltip` instance object.
 
 ```javascript
 tooltip.destroy()
+```
+
+## exportSceneAsImage
+
+Function used to export the scene as an image (.png).
+
+Live Demo: [exportSceneAsImage](https://syzdev.cn/cesium-plugins/example/exportSceneAsImage.html)
+
+| Name       | Type     | Default                         | Description                         |
+| ---------- | -------- | ------------------------------- | ----------------------------------- |
+| `viewer`   | `Object` |                                 | Initialize `viewer` of Cesium scene |
+| `fileName` | `String` | `Scene-${new Date().getTime()}` | File name to be exported            |
+
+```javascript
+import { exportSceneAsImage } from 'cesium-plugins'
+exportSceneAsImage(viewer, 'example')
 ```
