@@ -15,13 +15,13 @@ npm i cesium-plugins
 Using jsDelivr CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.43/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.46/index.js"></script>
 ```
 
 Using unpkg CDN:
 
 ```html
-<script src="https://unpkg.com/cesium-plugins@1.0.43/index.js"></script>
+<script src="https://unpkg.com/cesium-plugins@1.0.46/index.js"></script>
 ```
 
 # Overview
@@ -281,5 +281,5 @@ Live Demo: [exportSceneAsImage](https://syzdev.cn/cesium-plugins/example/exportS
 
 ```javascript
 import { exportSceneAsImage } from 'cesium-plugins'
-exportSceneAsImage(viewer, 'example')
+exportSceneAsImage(viewer, 'example-file-name')
 ```

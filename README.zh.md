@@ -15,13 +15,13 @@ npm i cesium-plugins
 使用 jsDelivr CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.43/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.46/index.js"></script>
 ```
 
 使用 unpkg CDN:
 
 ```html
-<script src="https://unpkg.com/cesium-plugins@1.0.43/index.js"></script>
+<script src="https://unpkg.com/cesium-plugins@1.0.46/index.js"></script>
 ```
 
 # 目录
@@ -281,5 +281,5 @@ tooltip.destroy()
 
 ```javascript
 import { exportSceneAsImage } from 'cesium-plugins'
-exportSceneAsImage(viewer, 'example')
+exportSceneAsImage(viewer, 'example-file-name')
 ```
