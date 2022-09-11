@@ -345,10 +345,12 @@ const pos = [
 The parameter list and default configuration of `floodOpts` are as follows:
 
 ```javascript
-waterHeight: 0, // in meters
-targetWaterHeight: 100, // in meters
-speed: 1, // in meters
-waterColor: new Cesium.Color.fromBytes(64, 157, 250, 120),0),
+{
+  waterHeight: 0, // in meters
+  targetWaterHeight: 100, // in meters
+  speed: 1, // in meters
+  waterColor: new Cesium.Color.fromBytes(64, 157, 250, 120),
+}
 ```
 
 `waterColor` must be the color defined in Cesium, See: [Color - Cesium Documentation](https://cesium.com/learn/cesiumjs/ref-doc/Color.html?classFilter=color).
