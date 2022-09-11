@@ -15,13 +15,13 @@ npm i cesium-plugins
 Using jsDelivr CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.46/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.47/index.js"></script>
 ```
 
 Using unpkg CDN:
 
 ```html
-<script src="https://unpkg.com/cesium-plugins@1.0.46/index.js"></script>
+<script src="https://unpkg.com/cesium-plugins@1.0.47/index.js"></script>
 ```
 
 # Overview
@@ -33,6 +33,8 @@ Using unpkg CDN:
 - [Tooltip](https://github.com/syzdev/cesium-plugins#Tooltip)：Plugin for creating tooltip that follow mouse movement.
 
 - [exportSceneAsImage](https://github.com/syzdev/cesium-plugins#exportSceneAsImage)：Function used to export the scene as an image (.png).
+
+- [FloodAnalysis](https://github.com/syzdev/cesium-plugins#FloodAnalysis)：Plugin for simulating flood analysis.
 
 # API
 
@@ -282,4 +284,121 @@ Live Demo: [exportSceneAsImage](https://syzdev.cn/cesium-plugins/example/exportS
 ```javascript
 import { exportSceneAsImage } from 'cesium-plugins'
 exportSceneAsImage(viewer, 'example-file-name')
+```
+
+## exportSceneAsImage
+
+用于将场景导出为图片（.png）的方法。
+
+在线示例：[exportSceneAsImage](https://syzdev.cn/cesium-plugins/example/exportSceneAsImage.html)
+
+| 名称         | 类型       | 默认值                             | 描述                   |
+| ---------- | -------- | ------------------------------- | -------------------- |
+| `viewer`   | `Object` |                                 | 初始化Cesium场景的`viewer` |
+| `fileName` | `String` | `Scene-${new Date().getTime()}` | 导出的文件名               |
+
+```javascript
+import { exportSceneAsImage } from 'cesium-plugins'
+exportSceneAsImage(viewer, 'example-file-name')
+```
+
+## FloodAnalysis
+
+Plugin for simulating flood analysis.
+
+Live Demo: [FloodAnalysis](https://syzdev.cn/cesium-plugins/example/FloodAnalysis.html)
+
+> Note: when using this plugin, please ensure that terrain is loaded in the scene and terrain depth detection is enabled.
+> 
+> ```javascript
+> viewer.terrainProvider = Cesium.createWorldTerrain()
+> viewer.scene.globe.depthTestAgainstTerrain = true
+> ```
+
+### `constructor(Cesium, viewer, pos, floodOpts)`
+
+Constructor, used to initialize the instance object of `FloodAnalysis`.
+
+| Name        | Type     | Default     | Description                                                                                                                                    |
+| ----------- | -------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Cesium`    | `Object` |             | Cesium global object                                                                                                                           |
+| `viewer`    | `Object` |             | Initialize `viewer` of Cesium scene                                                                                                            |
+| `pos`       | `Array`  | (See below) | Longitude and latitude region range used for simulation flood analysis                                                                         |
+| `floodOpts` | `Object` | (See below) | Configuration related to floodopts, such as initial water level height, target water level height, water level rising speed, water color, etc. |
+
+```javascript
+import { PositionPicker } from 'cesium-plugins'
+const flood = new FloodAnalysis(Cesium, viewer, pos, floodOpts)
+```
+
+The configuration example of `pos` is as follows:
+
+```javascript
+const pos = [
+  85.122, 28.848, 
+  85.074, 28.309, 
+  86.037, 28.257, 
+  86.044, 28.835
+]
+```
+
+The parameter list and default configuration of `floodOpts` are as follows:
+
+```javascript
+waterHeight: 0, // in meters
+targetWaterHeight: 100, // in meters
+speed: 1, // in meters
+waterColor: new Cesium.Color.fromBytes(64, 157, 250, 120),0),
+```
+
+`waterColor` must be the color defined in Cesium, See: [Color - Cesium Documentation](https://cesium.com/learn/cesiumjs/ref-doc/Color.html?classFilter=color).
+
+### `start(callback)`
+
+Used to start simulation flood analysis.
+
+| Name       | Type       | Default | Description                                      |
+| ---------- | ---------- | ------- | ------------------------------------------------ |
+| `callback` | `Function` |         | Callback function to get the current water level |
+
+```javascript
+flood.start((waterHeight) => {
+  // console.log(waterHeight)
+})
+```
+
+### `pause()`
+
+Used to pause simulation flood analysis.
+
+```javascript
+flood.pause()
+```
+
+### `destroy()`
+
+Used to destroy simulated flood analysis in the scene.
+
+```javascript
+flood.destroy()
+```
+
+### `getCurrentWaterHeight()`
+
+Used to get  the current water level height.
+
+```javascript
+flood.getCurrentWaterHeight()
+```
+
+### `setCurrentWaterHeight(height)`
+
+Used to set the current water level height.
+
+| Name     | Type     | Default | Description                                    |
+| -------- | -------- | ------- | ---------------------------------------------- |
+| `height` | `Number` |         | Set the current water level height (in meters) |
+
+```javascript
+flood.setCurrentWaterHeight(1000)
 ```
