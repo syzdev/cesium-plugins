@@ -15,13 +15,13 @@ npm i cesium-plugins
 Using jsDelivr CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.47/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.48/index.js"></script>
 ```
 
 Using unpkg CDN:
 
 ```html
-<script src="https://unpkg.com/cesium-plugins@1.0.47/index.js"></script>
+<script src="https://unpkg.com/cesium-plugins@1.0.48/index.js"></script>
 ```
 
 # Overview
@@ -288,14 +288,14 @@ exportSceneAsImage(viewer, 'example-file-name')
 
 ## exportSceneAsImage
 
-用于将场景导出为图片（.png）的方法。
+Function used to export the scene as an image (.png).
 
-在线示例：[exportSceneAsImage](https://syzdev.cn/cesium-plugins/example/exportSceneAsImage.html)
+Live Demo: [exportSceneAsImage](https://syzdev.cn/cesium-plugins/example/exportSceneAsImage.html)
 
-| 名称         | 类型       | 默认值                             | 描述                   |
-| ---------- | -------- | ------------------------------- | -------------------- |
-| `viewer`   | `Object` |                                 | 初始化Cesium场景的`viewer` |
-| `fileName` | `String` | `Scene-${new Date().getTime()}` | 导出的文件名               |
+| Name       | Type     | Default                         | Description                         |
+| ---------- | -------- | ------------------------------- | ----------------------------------- |
+| `viewer`   | `Object` |                                 | Initialize `viewer` of Cesium scene |
+| `fileName` | `String` | `Scene-${new Date().getTime()}` | File name to be exported            |
 
 ```javascript
 import { exportSceneAsImage } from 'cesium-plugins'
