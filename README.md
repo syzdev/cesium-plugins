@@ -15,13 +15,13 @@ npm i cesium-plugins
 Using jsDelivr CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.48/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.49/index.js"></script>
 ```
 
 Using unpkg CDN:
 
 ```html
-<script src="https://unpkg.com/cesium-plugins@1.0.48/index.js"></script>
+<script src="https://unpkg.com/cesium-plugins@1.0.49/index.js"></script>
 ```
 
 # Overview
