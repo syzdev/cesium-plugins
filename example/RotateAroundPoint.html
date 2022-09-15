@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport"
     content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-  <title>FloodAnalysis</title>
+  <title>RotateAroundPoint</title>
   <link rel='stylesheet' href='https://cesium.com/downloads/cesiumjs/releases/1.92/Build/Cesium/Widgets/widgets.css'>
   <script src='https://cesium.com/downloads/cesiumjs/releases/1.92/Build/Cesium/Cesium.js'></script>
   <style>
@@ -22,10 +22,9 @@
 
     #app {
       position: absolute;
-      left: 10px;
-      top: 10px;
-      padding: 20px;
-      width: 125px;
+      left: 20px;
+      top: 20px;
+      width: 140px;
       z-index: 999;
     }
 
@@ -54,9 +53,8 @@
 <body>
   <div id="cesiumContainer">
     <div id="app">
-      <button id="btn-start" class="btn">Flood - start</button>
-      <button id="btn-pause" class="btn">Flood - pause</button>
-      <button id="btn-destroy" class="btn">Flood - destroy</button>
+      <button id="btn-start" class="btn">Rotate - start</button>
+      <button id="btn-pause" class="btn">Rotate - pause</button>
     </div>
   </div>
   <script>
@@ -67,30 +65,23 @@
     });
     viewer._cesiumWidget._creditContainer.style.display = "none"
     viewer.terrainProvider = Cesium.createWorldTerrain()
-    viewer.scene.globe.depthTestAgainstTerrain = true
-    viewer.camera.setView({
-      destination: Cesium.Cartesian3.fromDegrees(85.565, 28.571, 120000.0),
-    })
   </script>
   <script type="module">
-    import { FloodAnalysis } from '../index.js'
-    // import { FloodAnalysis } from '../plugins/index.js'
-    const pos = [85.122, 28.848, 85.074, 28.309, 86.037, 28.257, 86.044, 28.835]
-    const flood = new FloodAnalysis(Cesium, viewer, pos, {
-      waterHeight: 1600,
-      targetWaterHeight: 5500,
-      speed: 5,
-    })
+    import { RotateAroundPoint } from '../index.js'
+
+    const rotateOpts = {
+      position: new Cesium.Cartesian3.fromDegrees(114.296, 30.546, 20),
+      degrees: 0.1,
+      range: 300
+    }
+
+    const rotate = new RotateAroundPoint(Cesium, viewer, rotateOpts)
+
     document.getElementById('btn-start').onclick = () => {
-      flood.start((waterHeight) => {
-        // console.log(waterHeight)
-      })
+      rotate.start()
     }
     document.getElementById('btn-pause').onclick = () => {
-      flood.pause()
-    }
-    document.getElementById('btn-destroy').onclick = () => {
-      flood.destroy()
+      rotate.pause()
     }
   </script>
 </body>
