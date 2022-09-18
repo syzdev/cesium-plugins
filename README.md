@@ -30,17 +30,17 @@ Using unpkg CDN:
 
 ## Overview
 
-- [PositionPicker](https://github.com/syzdev/cesium-plugins#positionpicker)：Plugin for left mouse click to pick up longitude, latitude, and height.
+- [PositionPicker](https://syzdev.cn/cesium-plugins-docs/docs/PositionPicker.html)：Plugin for left mouse click to pick up longitude, latitude, and height.
 
-- [Cesium3DTilesLoader](https://github.com/syzdev/cesium-plugins#cesium3dtilesloader)：Plugin for loading and configuring 3DTiles.
+- [Cesium3DTilesLoader](https://syzdev.cn/cesium-plugins-docs/docs/Cesium3DTilesLoader.html)：Plugin for loading and configuring 3DTiles.
 
-- [Tooltip](https://github.com/syzdev/cesium-plugins#Tooltip)：Plugin for creating tooltip that follow mouse movement.
+- [Tooltip](https://syzdev.cn/cesium-plugins-docs/docs/Tooltip.html)：Plugin for creating tooltip that follow mouse movement.
 
-- [exportSceneAsImage](https://github.com/syzdev/cesium-plugins#exportSceneAsImage)：Function used to export the scene as an image (.png).
+- [exportSceneAsImage](https://syzdev.cn/cesium-plugins-docs/docs/exportSceneAsImage.html)：Function used to export the scene as an image (.png).
 
-- [FloodAnalysis](https://github.com/syzdev/cesium-plugins#FloodAnalysis)：Plugin for simulating flood analysis.
+- [FloodAnalysis](https://syzdev.cn/cesium-plugins-docs/docs/FloodAnalysis.html)：Plugin for simulating flood analysis.
 
-- [RotateAroundPoint](https://github.com/syzdev/cesium-plugins#RotateAroundPoint)：Plugin for camera rotation around a point.
+- [RotateAroundPoint](https://syzdev.cn/cesium-plugins-docs/docs/RotateAroundPoint.html)：Plugin for camera rotation around a point.
 
 ## Usage
 

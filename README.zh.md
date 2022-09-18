@@ -30,17 +30,17 @@ npm i cesium-plugins
 
 ## 目录
 
-- [PositionPicker](https://github.com/syzdev/cesium-plugins/blob/master/README.zh.md#positionpicker)：用于鼠标左键点击拾取经度、纬度和高度的工具类。
+- [PositionPicker](https://syzdev.cn/cesium-plugins-docs/zh/docs/PositionPicker.html)：用于鼠标左键点击拾取经度、纬度和高度的工具类。
 
-- [Cesium3DTilesLoader](https://github.com/syzdev/cesium-plugins/blob/master/README.zh.md#cesium3dtilesloader)：用于加载并配置3DTiles的工具类。
+- [Cesium3DTilesLoader](https://syzdev.cn/cesium-plugins-docs/zh/docs/Cesium3DTilesLoader.html)：用于加载并配置3DTiles的工具类。
 
-- [Tooltip](https://github.com/syzdev/cesium-plugins/blob/master/README.zh.md#tooltip)：用于创建跟随鼠标移动的Tooltip工具类。
+- [Tooltip](https://syzdev.cn/cesium-plugins-docs/zh/docs/Tooltip.html)：用于创建跟随鼠标移动的Tooltip工具类。
 
-- [exportSceneAsImage](https://github.com/syzdev/cesium-plugins/blob/master/README.zh.md#exportSceneAsImage)：用于将场景导出为图片（.png）的方法。
+- [exportSceneAsImage](https://syzdev.cn/cesium-plugins-docs/zh/docs/exportSceneAsImage.html)：用于将场景导出为图片（.png）的方法。
 
-- [FloodAnalysis](https://github.com/syzdev/cesium-plugins/blob/master/README.zh.md#FloodAnalysis)：用于模拟淹没分析的工具类。
+- [FloodAnalysis](https://syzdev.cn/cesium-plugins-docs/zh/docs/FloodAnalysis.html)：用于模拟淹没分析的工具类。
 
-- [RotateAroundPoint](https://github.com/syzdev/cesium-plugins/blob/master/README.zh.md#RotateAroundPoint)：用于相机绕点旋转的工具类。
+- [RotateAroundPoint](https://syzdev.cn/cesium-plugins-docs/zh/docs/RotateAroundPoint.html)：用于相机绕点旋转的工具类。
 
 ## 基本示例
 
