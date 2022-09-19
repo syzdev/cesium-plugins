@@ -29,6 +29,9 @@
     const viewer = new Cesium.Viewer("cesiumContainer", {
       animation: false,
       timeline: false,
+      imageryProvider: new Cesium.ArcGisMapServerImageryProvider({
+        url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer'
+      })
     });
     viewer._cesiumWidget._creditContainer.style.display = "none"
     viewer.terrainProvider = Cesium.createWorldTerrain()
