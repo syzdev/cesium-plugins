@@ -19,13 +19,13 @@ npm i cesium-plugins
 使用 jsDelivr CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.5/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.6/index.js"></script>
 ```
 
 使用 unpkg CDN:
 
 ```html
-<script src="https://unpkg.com/cesium-plugins@1.0.5/index.js"></script>
+<script src="https://unpkg.com/cesium-plugins@1.0.6/index.js"></script>
 ```
 
 ## 目录
@@ -41,6 +41,8 @@ npm i cesium-plugins
 - [FloodAnalysis](https://syzdev.cn/cesium-plugins-docs/zh/docs/FloodAnalysis.html)：用于模拟淹没分析的工具类。
 
 - [RotateAroundPoint](https://syzdev.cn/cesium-plugins-docs/zh/docs/RotateAroundPoint.html)：用于相机绕点旋转的工具类。
+
+- [WaterMask](https://syzdev.cn/cesium-plugins-docs/zh/docs/WaterMask.html)：用于创建动态水面的工具类。
 
 ## 基本示例
 

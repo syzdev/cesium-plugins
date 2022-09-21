@@ -19,13 +19,13 @@ npm i cesium-plugins
 Using jsDelivr CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.5/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.6/index.js"></script>
 ```
 
 Using unpkg CDN:
 
 ```html
-<script src="https://unpkg.com/cesium-plugins@1.0.5/index.js"></script>
+<script src="https://unpkg.com/cesium-plugins@1.0.6/index.js"></script>
 ```
 
 ## Overview
@@ -41,6 +41,8 @@ Using unpkg CDN:
 - [FloodAnalysis](https://syzdev.cn/cesium-plugins-docs/docs/FloodAnalysis.html)：Plugin for simulating flood analysis.
 
 - [RotateAroundPoint](https://syzdev.cn/cesium-plugins-docs/docs/RotateAroundPoint.html)：Plugin for camera rotation around a point.
+
+- [WaterMask](https://syzdev.cn/cesium-plugins-docs/docs/WaterMask.html)：Plugin for generating dynamic water surface.
 
 ## Usage
 

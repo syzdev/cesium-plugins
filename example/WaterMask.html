@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <title>WaterMask</title>
+  <link rel='stylesheet' href='https://cesium.com/downloads/cesiumjs/releases/1.92/Build/Cesium/Widgets/widgets.css'>
+  <script src='https://cesium.com/downloads/cesiumjs/releases/1.92/Build/Cesium/Cesium.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.17"></script>
+  <style>
+    html,
+    body,
+    #cesiumContainer {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .lil-gui.autoPlace {
+      top: 10px;
+      left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cesiumContainer"></div>
+  <script>
+    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2YmRiNjM4MC1kMDZkLTQ2NDQtYjQ3My0xZDI4MDU0MGJhZDciLCJpZCI6MzIxMzAsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1OTY1MjM4NzZ9.A3FBZ6HjKkTsOGnjwWWeO9L10HQ9c-wcF4c3dtTc4gQ'
+    const viewer = new Cesium.Viewer("cesiumContainer", {
+      // animation: false,
+      // timeline: false,
+      imageryProvider: new Cesium.ArcGisMapServerImageryProvider({
+        url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer'
+      })
+    });
+    viewer._cesiumWidget._creditContainer.style.display = "none"
+    // viewer.terrainProvider = Cesium.createWorldTerrain()
+    viewer.camera.setView({
+      destination: Cesium.Cartesian3.fromDegrees(126.10750, 29.93965, 320000.0),
+    })
+  </script>
+  <script type="module">
+    import { WaterMask } from '../index.js'
+    const waterMaskOpts = {
+      pos: [
+        124.80506,
+        30.64557,
+        127.37983,
+        30.69813,
+        127.42934,
+        29.17222,
+        124.71773,
+        29.17104,
+      ]
+    }
+    const waterMask = new WaterMask(Cesium, viewer, './img/normal.jpg', waterMaskOpts)
+    const waterMaskPrimitive = waterMask.load()
+
+    // lil-gui
+    const gui = new lil.GUI();
+    let controls = {
+      frequency: 200.0,
+      animationSpeed: 0.002,
+      amplitude: 5.0,
+      specularIntensity: 1.0,
+      color: '#409DFA',
+      colorAlpha: 60,
+      reset: () => {
+        gui.reset()
+      }
+    }
+    gui.add(controls, 'frequency', 0, 1000).onChange((e) => {
+      waterMaskPrimitive.appearance.material.uniforms.frequency = e
+    })
+    gui.add(controls, 'animationSpeed', 0, 0.2).onChange((e) => {
+      waterMaskPrimitive.appearance.material.uniforms.animationSpeed = e
+    })
+    gui.add(controls, 'amplitude', 0, 10).onChange((e) => {
+      waterMaskPrimitive.appearance.material.uniforms.amplitude = e
+    })
+    gui.add(controls, 'specularIntensity', 0, 10).onChange((e) => {
+      waterMaskPrimitive.appearance.material.uniforms.specularIntensity = e
+    })
+    gui.addColor(controls, 'color').onChange((e) => {
+      waterMaskPrimitive.appearance.material.uniforms.baseWaterColor = new Cesium.Color.fromCssColorString(`${e + controls.colorAlpha.toString(16)}`)
+    })
+    gui.add(controls, 'colorAlpha', 0, 255).step(10).onChange((e) => {
+      waterMaskPrimitive.appearance.material.uniforms.baseWaterColor = new Cesium.Color.fromCssColorString(`${controls.color + e.toString(16)}`)
+    })
+    gui.add(controls, 'reset')
+  </script>
+</body>
+
+</html>
