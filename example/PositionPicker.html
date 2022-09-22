@@ -19,11 +19,30 @@
       padding: 0;
       overflow: hidden;
     }
+
+    #app {
+      padding: 10px;
+      width: 240px;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      z-index: 999;
+      color: #fff;
+      background-color: rgba(40, 44, 50, 0.9);
+      border-radius: 10px;
+    }
   </style>
 </head>
 
 <body>
-  <div id="cesiumContainer"></div>
+  <div id="cesiumContainer">
+    <div id="app">
+      <div>Tips: Click to pick coordinates.</div><br>
+      lon: <span id="lon"></span><br>
+      lat: <span id="lat"></span><br>
+      hgt: <span id="hgt"></span><br>
+    </div>
+  </div>
   <script>
     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2YmRiNjM4MC1kMDZkLTQ2NDQtYjQ3My0xZDI4MDU0MGJhZDciLCJpZCI6MzIxMzAsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1OTY1MjM4NzZ9.A3FBZ6HjKkTsOGnjwWWeO9L10HQ9c-wcF4c3dtTc4gQ'
     const viewer = new Cesium.Viewer("cesiumContainer", {
@@ -39,7 +58,13 @@
   <script type="module">
     import { PositionPicker } from '../index.js'
     const picker = new PositionPicker(Cesium, viewer)
+    const lonEl = document.getElementById("lon")
+    const latEl = document.getElementById("lat")
+    const hgtEl = document.getElementById("hgt")
     picker.pick(({ lon, lat, hgt }) => {
+      lonEl.innerHTML = lon;
+      latEl.innerHTML = lat;
+      hgtEl.innerHTML = hgt;
       // console.log(lon, lat, hgt)
     }, true)
   </script>
