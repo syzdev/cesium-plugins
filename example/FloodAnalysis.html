@@ -9,6 +9,7 @@
   <title>FloodAnalysis</title>
   <link rel='stylesheet' href='https://cesium.com/downloads/cesiumjs/releases/1.92/Build/Cesium/Widgets/widgets.css'>
   <script src='https://cesium.com/downloads/cesiumjs/releases/1.92/Build/Cesium/Cesium.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.17"></script>
   <style>
     html,
     body,
@@ -20,45 +21,15 @@
       overflow: hidden;
     }
 
-    #app {
-      position: absolute;
-      left: 10px;
+    .lil-gui.autoPlace {
       top: 10px;
-      padding: 20px;
-      width: 125px;
-      z-index: 999;
-    }
-
-    .btn {
-      font-size: 15px;
-      width: 140px;
-      height: 40px;
-      border-width: 1px;
-      color: #14396a;
-      border-color: #3866a3;
-      font-weight: bold;
-      border-radius: 6px;
-      box-shadow: inset 0px 1px 0px 0px #bee2f9;
-      text-shadow: inset 0px 1px 0px #7cacde;
-      background: linear-gradient(#63b8ee, #468ccf);
-      margin-bottom: 10px;
-    }
-
-    .btn:hover {
-      cursor: pointer;
-      background: linear-gradient(#468ccf, #63b8ee);
+      left: 10px;
     }
   </style>
 </head>
 
 <body>
-  <div id="cesiumContainer">
-    <div id="app">
-      <button id="btn-start" class="btn">Flood - start</button>
-      <button id="btn-pause" class="btn">Flood - pause</button>
-      <button id="btn-destroy" class="btn">Flood - destroy</button>
-    </div>
-  </div>
+  <div id="cesiumContainer"></div>
   <script>
     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2YmRiNjM4MC1kMDZkLTQ2NDQtYjQ3My0xZDI4MDU0MGJhZDciLCJpZCI6MzIxMzAsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1OTY1MjM4NzZ9.A3FBZ6HjKkTsOGnjwWWeO9L10HQ9c-wcF4c3dtTc4gQ'
     const viewer = new Cesium.Viewer("cesiumContainer", {
@@ -77,24 +48,59 @@
   </script>
   <script type="module">
     import { FloodAnalysis } from '../index.js'
-    // import { FloodAnalysis } from '../plugins/index.js'
     const pos = [85.122, 28.848, 85.074, 28.309, 86.037, 28.257, 86.044, 28.835]
     const flood = new FloodAnalysis(Cesium, viewer, pos, {
       waterHeight: 1600,
       targetWaterHeight: 5500,
       speed: 5,
     })
-    document.getElementById('btn-start').onclick = () => {
-      flood.start((waterHeight) => {
-        // console.log(waterHeight)
-      })
+
+    // lil-gui
+    const gui = new lil.GUI();
+    let controls = {
+      currentWaterHeight: flood.getCurrentWaterHeight(),
+      speed: 5,
+      waterColor: '#409DFA',
+      waterColorAlpha: 60,
+      start: () => {
+        flood.start((waterHeight) => {
+          // console.log(waterHeight)
+          controls.currentWaterHeight = waterHeight
+        })
+      },
+      pause: () => {
+        flood.pause()
+      },
+      destroy: () => {
+        gui.reset()
+        flood.destroy()
+      },
+
     }
-    document.getElementById('btn-pause').onclick = () => {
-      flood.pause()
-    }
-    document.getElementById('btn-destroy').onclick = () => {
-      flood.destroy()
-    }
+    gui.add(controls, 'currentWaterHeight', 1600, 8000, 1).listen().updateDisplay().onChange(e => {
+      if (flood.waterPolygon) {
+        flood.setCurrentWaterHeight(e)
+        flood.defaultFloodOpts.waterHeight = e
+      }
+    })
+    gui.add(controls, 'speed', 1, 20, 1).onChange(e => {
+      if (flood.waterPolygon) {
+        flood.defaultFloodOpts.speed = e
+      }
+    })
+    gui.addColor(controls, 'waterColor').onChange((e) => {
+      if (flood.waterPolygon) {
+        flood.waterPolygon.polygon.material.color = new Cesium.Color.fromCssColorString(`${e + controls.waterColorAlpha.toString(16)}`)
+      }
+    })
+    gui.add(controls, 'waterColorAlpha', 0, 255).step(10).onChange((e) => {
+      if (flood.waterPolygon) {
+        flood.waterPolygon.polygon.material.color = new Cesium.Color.fromCssColorString(`${controls.waterColor + e.toString(16)}`)
+      }
+    })
+    gui.add(controls, 'start')
+    gui.add(controls, 'pause')
+    gui.add(controls, 'destroy').name('destroy / reset')
   </script>
 </body>
 
