@@ -9,6 +9,7 @@
   <title>Tooltip</title>
   <link rel='stylesheet' href='https://cesium.com/downloads/cesiumjs/releases/1.92/Build/Cesium/Widgets/widgets.css'>
   <script src='https://cesium.com/downloads/cesiumjs/releases/1.92/Build/Cesium/Cesium.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.17"></script>
   <style>
     html,
     body,
@@ -18,6 +19,11 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
+    }
+
+    .lil-gui.autoPlace {
+      top: 10px;
+      left: 10px;
     }
   </style>
 </head>
@@ -55,6 +61,19 @@
     }
 
     const tooltip = new Tooltip(Cesium, viewer, 'cesium-plugins', tooltipOpts)
+
+    // lil-gui
+    const gui = new lil.GUI();
+    let controls = {
+      msg: 'cesium-plugins',
+      reset: () => {
+        gui.reset()
+      }
+    }
+    gui.add(controls, 'msg').onChange((e) => {
+      tooltip.inner.innerText = e
+    })
+    gui.add(controls, 'reset')
   </script>
 </body>
 
