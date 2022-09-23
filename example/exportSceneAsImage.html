@@ -9,6 +9,7 @@
   <title>exportSceneAsImage</title>
   <link rel='stylesheet' href='https://cesium.com/downloads/cesiumjs/releases/1.92/Build/Cesium/Widgets/widgets.css'>
   <script src='https://cesium.com/downloads/cesiumjs/releases/1.92/Build/Cesium/Cesium.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.17"></script>
   <style>
     html,
     body,
@@ -20,43 +21,15 @@
       overflow: hidden;
     }
 
-    #app {
-      position: absolute;
-      left: 10px;
+    .lil-gui.autoPlace {
       top: 10px;
-      padding: 20px;
-      width: 125px;
-      z-index: 999;
-    }
-
-    #btn {
-      font-size: 15px;
-      width: 140px;
-      height: 40px;
-      border-width: 1px;
-      color: #14396a;
-      border-color: #3866a3;
-      font-weight: bold;
-      border-radius: 6px;
-      box-shadow: inset 0px 1px 0px 0px #bee2f9;
-      text-shadow: inset 0px 1px 0px #7cacde;
-      background: linear-gradient(#63b8ee, #468ccf);
-      margin-bottom: 10px;
-    }
-
-    #btn:hover {
-      cursor: pointer;
-      background: linear-gradient(#468ccf, #63b8ee);
+      left: 10px;
     }
   </style>
 </head>
 
 <body>
-  <div id="cesiumContainer">
-    <div id="app">
-      <button id="btn">Export</button>
-    </div>
-  </div>
+  <div id="cesiumContainer"></div>
   <script>
     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2YmRiNjM4MC1kMDZkLTQ2NDQtYjQ3My0xZDI4MDU0MGJhZDciLCJpZCI6MzIxMzAsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1OTY1MjM4NzZ9.A3FBZ6HjKkTsOGnjwWWeO9L10HQ9c-wcF4c3dtTc4gQ'
     const viewer = new Cesium.Viewer("cesiumContainer", {
@@ -71,9 +44,19 @@
   </script>
   <script type="module">
     import { exportSceneAsImage } from '../index.js'
-    document.getElementById('btn').onclick = () => {
-      exportSceneAsImage(viewer)
+
+    // lil-gui
+    const gui = new lil.GUI();
+    let controls = {
+      fileName: 'example-file-name',
+      fileType: 'png',
+      export: function () {
+        exportSceneAsImage(viewer, this.fileName, this.fileType)
+      }
     }
+    gui.add(controls, 'fileName')
+    gui.add(controls, 'fileType', ['png', 'jpg', 'jpeg', 'webp', 'bmp', 'tif', 'gif'])
+    gui.add(controls, 'export')
   </script>
 </body>
 
