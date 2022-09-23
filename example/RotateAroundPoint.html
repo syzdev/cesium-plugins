@@ -9,6 +9,7 @@
   <title>RotateAroundPoint</title>
   <link rel='stylesheet' href='https://cesium.com/downloads/cesiumjs/releases/1.92/Build/Cesium/Widgets/widgets.css'>
   <script src='https://cesium.com/downloads/cesiumjs/releases/1.92/Build/Cesium/Cesium.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.17"></script>
   <style>
     html,
     body,
@@ -28,35 +29,15 @@
       z-index: 999;
     }
 
-    .btn {
-      font-size: 15px;
-      width: 140px;
-      height: 40px;
-      border-width: 1px;
-      color: #14396a;
-      border-color: #3866a3;
-      font-weight: bold;
-      border-radius: 6px;
-      box-shadow: inset 0px 1px 0px 0px #bee2f9;
-      text-shadow: inset 0px 1px 0px #7cacde;
-      background: linear-gradient(#63b8ee, #468ccf);
-      margin-bottom: 10px;
-    }
-
-    .btn:hover {
-      cursor: pointer;
-      background: linear-gradient(#468ccf, #63b8ee);
+    .lil-gui.autoPlace {
+      top: 10px;
+      left: 10px;
     }
   </style>
 </head>
 
 <body>
-  <div id="cesiumContainer">
-    <div id="app">
-      <button id="btn-start" class="btn">Rotate - start</button>
-      <button id="btn-pause" class="btn">Rotate - pause</button>
-    </div>
-  </div>
+  <div id="cesiumContainer"></div>
   <script>
     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2YmRiNjM4MC1kMDZkLTQ2NDQtYjQ3My0xZDI4MDU0MGJhZDciLCJpZCI6MzIxMzAsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1OTY1MjM4NzZ9.A3FBZ6HjKkTsOGnjwWWeO9L10HQ9c-wcF4c3dtTc4gQ'
     const viewer = new Cesium.Viewer("cesiumContainer", {
@@ -80,12 +61,42 @@
 
     const rotate = new RotateAroundPoint(Cesium, viewer, rotateOpts)
 
-    document.getElementById('btn-start').onclick = () => {
-      rotate.start()
+    // lil-gui
+    const gui = new lil.GUI();
+    let controls = {
+      degrees: 0.1,
+      range: 300,
+      longitude: 114.296,
+      latitude: 30.546,
+      height: 20,
+      start: () => {
+        rotate.start()
+      },
+      pause: () => {
+        rotate.pause()
+      },
+      reset: () => {
+        gui.reset()
+      }
     }
-    document.getElementById('btn-pause').onclick = () => {
-      rotate.pause()
-    }
+    gui.add(controls, 'longitude').onChange((e) => {
+      rotate.rotateOpts.position = new Cesium.Cartesian3.fromDegrees(e, controls.latitude, controls.height)
+    })
+    gui.add(controls, 'latitude').onChange((e) => {
+      rotate.rotateOpts.position = new Cesium.Cartesian3.fromDegrees(controls.longitude, e, controls.height)
+    })
+    gui.add(controls, 'height').onChange((e) => {
+      rotate.rotateOpts.position = new Cesium.Cartesian3.fromDegrees(controls.longitude, controls.latitude, e)
+    })
+    gui.add(controls, 'degrees', 0, 1, 0.1).onChange((e) => {
+      rotate.rotateOpts.degrees = e
+    })
+    gui.add(controls, 'range', 300, 3000, 1).onChange((e) => {
+      rotate.rotateOpts.range = e
+    })
+    gui.add(controls, 'start')
+    gui.add(controls, 'pause')
+    gui.add(controls, 'reset')
   </script>
 </body>
 
