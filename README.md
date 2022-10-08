@@ -16,16 +16,25 @@ Using npm:
 npm i cesium-plugins
 ```
 
-Using jsDelivr CDN:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.61/index.js"></script>
+```javascript
+import { PositionPicker } from 'cesium-plugins'
 ```
 
-Using unpkg CDN:
+For quick sketches, you can import `cesium-plugins` directly from jsDelivr CDN.
 
 ```html
-<script src="https://unpkg.com/cesium-plugins@1.0.61/index.js"></script>
+<script type="module">
+  import { PositionPicker } from 'https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.62/index.js'
+</script>
+```
+
+The library is also available in UMD format under the namespace `CP`.
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.62/index.umd.js"></script>
+<script>
+  const picker = new CP.PositionPicker(Cesium, viewer)
+</script>
 ```
 
 ## Overview

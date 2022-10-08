@@ -10,22 +10,31 @@
 
 ## 安装
 
-使用 npm：
+使用 npm:
 
 ```shell
 npm i cesium-plugins
 ```
 
-使用 jsDelivr CDN:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.61/index.js"></script>
+```javascript
+import { PositionPicker } from 'cesium-plugins'
 ```
 
-使用 unpkg CDN:
+快速引入，可以直接通过 jsDelivr CDN 来引入 `cesium-plugins`：
 
 ```html
-<script src="https://unpkg.com/cesium-plugins@1.0.61/index.js"></script>
+<script type="module">
+  import { PositionPicker } from 'https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.62/index.js'
+</script>
+```
+
+UMD 格式也是支持的，可以通过命名空间 `CP` 来引入 `cesium-plugins`：
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.62/index.umd.js"></script>
+<script>
+  const picker = new CP.PositionPicker(Cesium, viewer)
+</script>
 ```
 
 ## 目录
