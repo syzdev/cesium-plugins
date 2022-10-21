@@ -53,6 +53,8 @@ The library is also available in UMD format under the namespace `CP`.
 
 - [WaterMask](https://syzdev.cn/cesium-plugins-docs/docs/WaterMask.html)：Plugin for generating dynamic water surface.
 
+- [HTMLOverlay](https://syzdev.cn/cesium-plugins-docs/docs/HTMLOverlay.html)：Plugin for placing an HTML element on top of the Cesium canvas.
+
 ## Usage
 
 Make sure that `Cesium` has been set up and that the `viewer` has been initialized.

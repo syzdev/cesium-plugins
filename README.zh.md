@@ -53,6 +53,8 @@ UMD 格式也是支持的，可以通过命名空间 `CP` 来引入 `cesium-plug
 
 - [WaterMask](https://syzdev.cn/cesium-plugins-docs/zh/docs/WaterMask.html)：用于创建动态水面的工具类。
 
+- [HTMLOverlay](https://syzdev.cn/cesium-plugins-docs/zh/docs/HTMLOverlay.html)：用于将HTML元素放在Cesium canvas上的工具类。
+
 ## 基本示例
 
 请确保项目中`Cesium`已经成功引入，并且`viewer`已经完成初始化。
