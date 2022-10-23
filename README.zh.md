@@ -24,14 +24,14 @@ import { PositionPicker } from 'cesium-plugins'
 
 ```html
 <script type="module">
-  import { PositionPicker } from 'https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.62/index.js'
+  import { PositionPicker } from 'https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.63/index.js'
 </script>
 ```
 
 UMD 格式也是支持的，可以通过命名空间 `CP` 来引入 `cesium-plugins`：
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.62/index.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cesium-plugins@1.0.63/index.umd.js"></script>
 <script>
   const picker = new CP.PositionPicker(Cesium, viewer)
 </script>
