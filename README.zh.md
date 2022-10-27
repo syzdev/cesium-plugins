@@ -45,7 +45,7 @@ UMD 格式也是支持的，可以通过命名空间 `CP` 来引入 `cesium-plug
 
 - [Tooltip](https://syzdev.cn/cesium-plugins-docs/zh/docs/Tooltip.html)：用于创建跟随鼠标移动的Tooltip工具类。
 
-- [exportSceneAsImage](https://syzdev.cn/cesium-plugins-docs/zh/docs/exportSceneAsImage.html)：用于将场景导出为图片（.png）的方法。
+- [exportSceneAsImage](https://syzdev.cn/cesium-plugins-docs/zh/docs/exportSceneAsImage.html)：用于将场景导出为图片的方法。
 
 - [FloodAnalysis](https://syzdev.cn/cesium-plugins-docs/zh/docs/FloodAnalysis.html)：用于模拟淹没分析的工具类。
 
